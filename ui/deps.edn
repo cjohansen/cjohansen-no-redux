@@ -1,0 +1,11 @@
+{:paths ["src" "portfolio" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.11.1"}
+        org.clojure/clojurescript {:mvn/version "1.11.60"}
+        com.bhauman/figwheel-main {:mvn/version "0.2.18"}
+        cider/piggieback {:mvn/version "0.5.3"}
+        cjohansen/dumdom {:mvn/version "2023.11.06"}
+        no.cjohansen/portfolio {:git/url "https://github.com/cjohansen/portfolio.git"
+                                :sha "f28b08e04d8f27339916cceaa0dad6ce940ed8f4"}}
+ :aliases
+ {:repl {:extra-deps {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}
+         :main-opts ["-m" "figwheel.main" "--build" "dev" "--repl"]}}}
