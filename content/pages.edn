@@ -1,0 +1,8 @@
+[{:page/uri "/"
+  :page/kind :page.kind/frontpage
+  :page/title "Christian Johansen - Software developer and musician"
+  :page/body
+  "I am **Christian Johansen**. I make my living as a software developer. My
+  hobbies include playing, recording and mixing music, baking, brewing, cooking,
+  and board games. I write about software development, often
+  with [Clojure](/clojure/)."}]

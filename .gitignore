@@ -1,0 +1,5 @@
+.cpcache
+.nrepl-port
+ui/resources/public/js
+/.clj-kondo/
+/.lsp/

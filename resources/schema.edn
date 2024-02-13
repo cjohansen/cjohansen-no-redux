@@ -1,0 +1,187 @@
+[
+ ;; Tags
+ {:db/ident :tag/id
+  :db/valueType :db.type/keyword
+  :db/unique :db.unique/identity
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :tag/name
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :page/body
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ ;; Sections
+ {:db/ident :section/id
+  :db/valueType :db.type/string
+  :db/unique :db.unique/identity
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :section/number
+  :db/valueType :db.type/long
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :section/body
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :section/title
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :section/sub-title
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :section/image
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :section/image-alt
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :section/type
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :section/theme
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :section/time
+  :db/valueType :db.type/long
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :section/ingredients
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/many
+  :db/isComponent true}
+
+ {:db/ident :sectioned/sections
+  :db/valueType :db.type/ref
+  :db/isComponent true
+  :db/cardinality :db.cardinality/many}
+
+ ;; Tech blog posts
+ {:db/ident :tech-blog/title
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :tech-blog/short-title
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :tech-blog/description
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :tech-blog/short-description
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :tech-blog/published
+  :dte/valueType :java.time/local-date-time
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :tech-blog/updated
+  :dte/valueType :java.time/local-date-time
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :tech-blog/tags
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/many}
+
+ {:db/ident :tech-blog/image
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ ;; Ingredients
+ {:db/ident :ingredient/id
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one
+  :db/unique :db.unique/identity}
+
+ {:db/ident :ingredient/type
+  :db/valueType :db.type/keyword
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :ingredient/name
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :ingredient/flour-weight
+  :db/valueType :db.type/float
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :ingredient/liquid-weight
+  :db/valueType :db.type/float
+  :db/cardinality :db.cardinality/one}
+
+ ;; Recipe step ingredient
+ {:db/ident :step-ingredient/ingredient
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :step-ingredient/amount
+  :db/valueType :db.type/float
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :step-ingredient/temperature
+  :db/valueType :db.type/long
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :step-ingredient/indirect-use?
+  :db/valueType :db.type/boolean
+  :db/cardinality :db.cardinality/one}
+
+ ;; Bread recipes
+ {:db/ident :bread/title
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :bread/description
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :bread/published
+  :db/valueType :db.type/instant
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :bread/updated
+  :db/valueType :db.type/instant
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :bread/image
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one}
+
+ ;; Recipe blog posts
+
+ {:db/ident :recipe/title
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :recipe/description
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :recipe/published
+  :db/valueType :db.type/instant
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :recipe/updated
+  :db/valueType :db.type/instant
+  :db/cardinality :db.cardinality/one}
+
+ {:db/ident :recipe/tags
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/many}
+
+ {:db/ident :recipe/image
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one}
+
+ ]
