@@ -9,16 +9,16 @@
     (apply update-in m path args)
     m))
 
-(defn ingest-section [index section]
+(defn ingest-section [page index section]
   (-> section
       (update-in-existing [:section/body] md/render-html)
       (dissoc :page/uri)
       (assoc :section/number index)
-      (assoc :section/id (str "section-" index))))
+      (assoc :section/id (str (:page/uri page) "-section-" index))))
 
 (defn get-sectioned [xs]
   (->> (rest xs)
-       (map-indexed ingest-section)
+       (map-indexed (partial ingest-section (first xs)))
        (assoc (first xs) :sectioned/sections)))
 
 (defn ensure-open-graph-data [blog-post]
@@ -26,7 +26,8 @@
     (not (:open-graph/description blog-post))
     (assoc :open-graph/description (:tech-blog/description blog-post))
 
-    (not (:open-graph/image blog-post))
+    (and (not (:open-graph/image blog-post))
+         (:tech-blog/image blog-post))
     (assoc :open-graph/image (:tech-blog/image blog-post))))
 
 (defn ingest-tech-blog-post [sections]
