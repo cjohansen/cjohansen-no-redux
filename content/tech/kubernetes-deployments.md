@@ -21,6 +21,8 @@ But why?
 :section/title Zero downtime Kubernetes deployments
 :section/body
 
+[På Norsk](https://www.kodemaker.no/blogg/2020-01-kubernetes-deployment-nedetid/).
+
 When you deploy your app to that spaceship of a rig called Kubernetes, it
 happens without any form of downtime, right? Bad news: unless you have actively
 worked for it, your services most likely have some downtime during deployment.

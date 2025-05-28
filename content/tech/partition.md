@@ -21,6 +21,8 @@ in this post I'll show you why it should be.
 --------------------------------------------------------------------------------
 :section/body
 
+[På Norsk](https://www.kodemaker.no/blogg/2020-04-partisjonering/).
+
 Lists, or sequences, are incredibly useful data structures. A lot of the data we
 process is already a sequential collection of things, and by representing them
 with the same basic data structures, we can solve problems with the same tools

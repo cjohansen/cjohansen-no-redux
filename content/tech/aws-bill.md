@@ -21,6 +21,8 @@ Amazon's direction. What do you do when you discover that the AWS bill is
 :section/title When the AWS Bill Gets Sky-High
 :section/body
 
+[På Norsk](https://www.kodemaker.no/blogg/2019-09-aws-regning/).
+
 These days many are moving their systems to the cloud. The promises are many:
 operations will almost run by themselves, systems become instantly "web scale",
 and thanks to the "pay as you go" model, costs should go down —

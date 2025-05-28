@@ -21,6 +21,8 @@ already fixed, or are using an outdated API client? Well, here's one suggestion.
 :section/title Continuous Delivery on the Frontend
 :section/body
 
+[På Norsk](https://www.kodemaker.no/blogg/kontinuerlig-utrulling-frontend/).
+
 You have a Single Page Application (SPA). Users typically keep the app open in
 their browser for a long time - many days, or even weeks. At the same time,
 you're pushing out new versions several times a day. How on earth do you ensure

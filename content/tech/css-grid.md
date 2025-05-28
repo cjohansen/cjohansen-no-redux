@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 :page/title CSS Grid
-:page/locale :nb
+:page/locale :en
 :tech-blog/published #time/ldt "2019-07-03T12:00"
 :tech-blog/tags [:tag/css]
 :open-graph/description
@@ -19,6 +19,8 @@ over source order, and get a powerful tool for responsive design in the bargain.
 :section/theme :dark1
 :section/title CSS Grid
 :section/body
+
+[På Norsk](https://www.kodemaker.no/blogg/2019-07-css-grid/).
 
 CSS grids have finally given us a simple and flexible model for web layout. With
 just a few properties, you can pretty much retire `float`, gain full control

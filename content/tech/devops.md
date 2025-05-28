@@ -21,6 +21,8 @@ offer are slim.
 :section/title Devops! Dev? Ops!
 :section/body
 
+[På Norsk](https://www.kodemaker.no/blogg/2019-12-devops/).
+
 There is currently no shortage of companies in the IT world boasting about doing
 Devops. But are they really? If the solution is a "devops team" or job ads for
 "a devopser," unfortunately the chances of getting the best that devops has to

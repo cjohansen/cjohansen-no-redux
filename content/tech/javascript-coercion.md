@@ -32,6 +32,8 @@ understanding _why_ things are the way they are.
 --------------------------------------------------------------------------------
 :section/body
 
+[På Norsk](https://www.kodemaker.no/blogg/javascript-coercion/).
+
 JavaScript is a dynamic language with more than average quirky rules for
 automatic type conversion -- "coercion". Luckily, there are fewer rules than it
 may seem, but together they can surprise anyone. If you know the rules, you

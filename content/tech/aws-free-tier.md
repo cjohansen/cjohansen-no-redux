@@ -22,6 +22,8 @@ pickle — even if you don't use EFS.
 --------------------------------------------------------------------------------
 :section/body
 
+[På Norsk](https://www.kodemaker.no/blogg/2019-07-aws-free-tier/).
+
 **Fall 2018**: A colleague and I set up a Kubernetes cluster on AWS. We went
 to production without much fuss, and things worked as expected. Fast forward
 5-6 months, and the situation turned upside down overnight.

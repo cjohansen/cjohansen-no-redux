@@ -69,6 +69,21 @@
      :teasers (map prepare-teaser (get-blog-posts (:app/db ctx)))})
    (e/footer)))
 
+(defn render-tag-page [_ tag]
+  (layout/layout
+   {:title (:tag/name tag)}
+   [:div
+    (e/simple-header)
+    (e/teaser-section
+     {:title (:tag/name tag)
+      :teasers (->> tag
+                    :tech-blog/_tags
+                    (filter :tech-blog/published)
+                    (sort-by :tech-blog/published)
+                    reverse
+                    (map prepare-teaser))})
+    (e/footer)]))
+
 (comment
 
   (def conn (:datomic/conn (powerpack.dev/get-app)))

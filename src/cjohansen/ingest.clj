@@ -39,7 +39,9 @@
   {:tag/id k
    :tag/name v
    :page/uri (str "/" (str/replace (str/lower-case v) #"[^a-z0-9]+" "-") "/")
-   :page/kind :page.kind/tech-tag})
+   :page/kind :page.kind/tech-tag
+   :page/title v
+   :open-graph/description (str "Blog posts about " v)})
 
 (defn create-tx [file-name datas]
   (cond->> datas
