@@ -5,15 +5,14 @@
 :tech-blog/tags [:tag/css]
 :open-graph/description
 
-CSS grids har endelig gitt oss en enkel og fleksibel modell for layout på nett.
-Lær hvordan!
+CSS grids have finally given us a simple and flexible model for web layout.
+Learn how!
 
 :tech-blog/description
 
-CSS grids har endelig gitt oss en enkel og fleksibel modell for layout på nett.
-Med bare noen få properties kan du stort sett pakke `float` helt bort, få full
-kontroll over kilde-rekkefølge og et kraftig verktøy for responsiv design på
-kjøpet.
+CSS grids have finally given us a simple and flexible model for web layout. With
+just a few properties, you can pretty much retire `float`, gain full control
+over source order, and get a powerful tool for responsive design in the bargain.
 
 --------------------------------------------------------------------------------
 :section/kind :centered
@@ -21,30 +20,29 @@ kjøpet.
 :section/title CSS Grid
 :section/body
 
-CSS grids har endelig gitt oss en enkel og fleksibel modell for layout på nett.
-Med bare noen få properties kan du stort sett pakke `float` helt bort, få full
-kontroll over kilde-rekkefølge og et kraftig verktøy for responsiv design på
-kjøpet.
+CSS grids have finally given us a simple and flexible model for web layout. With
+just a few properties, you can pretty much retire `float`, gain full control
+over source order, and get a powerful tool for responsive design in the bargain.
 
 --------------------------------------------------------------------------------
 :section/body
 
-[CSS grids](https://www.w3.org/TR/css-grid-1/) var ferdig spekket i desember
-2017, og har [bred nok nettleser-støtte](https://caniuse.com/#search=grid) til å
-kunne brukes omtrent hvor enn det skulle være. Grids er enkle å jobbe med, og
-gir deg så god kontroll at rekkefølge/plassering i HTML er fullstendig adskilt
-fra visuelt resultat. Det er dermed et ideellt verktøy for responsive løsninger.
-I dette innlegget skal jeg vise et par grunnleggende properties som godt viser
-mulighetsrommet for CSS grids.
+[CSS grids](https://www.w3.org/TR/css-grid-1/) were finalized in December 2017
+and now have [broad enough browser support](https://caniuse.com/#search=grid) to
+be used practically anywhere. Grids are easy to work with and give you such fine
+control that the order and placement in your HTML is completely separated from
+the visual result. This makes it an ideal tool for responsive designs. In this
+post, I’ll show a couple of fundamental properties that nicely demonstrate the
+possibilities of CSS grids.
 
-## Kolonner
+## Columns
 
-For å lage et grid trenger du kun et container-element med `display: grid` og
-valgfri spesifikasjon av antall og dimensjonene på kolonnene og/eller radene.
-Barne-elementene til containeren vil så plassere seg inn i grid-et i den
-rekkefølgen de opptrer i kilden (mer om å bøye denne regelen senere). Her er et
-grid med to kolonner - én på 200 piksler, og den andre resten av tilgjengelig
-plass:
+To create a grid, all you need is a container element with display: grid and an
+optional specification of the number and size of the columns and/or rows. The
+child elements of the container will then place themselves into the grid in the
+order they appear in the source (more on bending that rule later). Here’s a grid
+with two columns — one that’s 200 pixels wide, and the other taking up the
+remaining available space:
 
 ```css
 .grid-container {
@@ -81,20 +79,20 @@ plass:
 
 <div class="grid-ex">
  <div class="grid-container1">
-  <div class="child1"><p>Dette er element #1</p></div>
-  <div class="child2"><p>Dette er element #2</p></div>
-  <div class="child3"><p>Dette er element #3</p></div>
-  <div class="child4"><p>Dette er element #4</p></div>
-  <div class="child5"><p>Dette er element #5</p></div>
-  <div class="child6"><p>Dette er element #6</p></div>
+  <div class="child1"><p>This is element #1</p></div>
+  <div class="child2"><p>This is element #2</p></div>
+  <div class="child3"><p>This is element #3</p></div>
+  <div class="child4"><p>This is element #4</p></div>
+  <div class="child5"><p>This is element #5</p></div>
+  <div class="child6"><p>This is element #6</p></div>
  </div>
 </div>
 
-## Rader
+## Rows
 
-Du kan tilsvarende si noe om høyden på radene med `grid-template-rows`. Dersom
-du har så mange elementer at det blir flere rader enn `grid-template-rows`
-beskriver vil påfølgende rader opptre som om de var spesifisert med `auto`.
+You can similarly define the height of rows using `grid-template-rows`. If you
+have more elements than the number of rows specified by `grid-template-rows`,
+the additional rows will behave as if they were defined with `auto`.
 
 ```css
 .grid-container {
@@ -114,21 +112,21 @@ beskriver vil påfølgende rader opptre som om de var spesifisert med `auto`.
 
 <div class="grid-ex">
  <div class="grid-container2">
-  <div class="child1"><p>Dette er element #1</p></div>
-  <div class="child2"><p>Dette er element #2</p></div>
-  <div class="child3"><p>Dette er element #3</p></div>
-  <div class="child4"><p>Dette er element #4</p></div>
-  <div class="child5"><p>Dette er element #5</p></div>
-  <div class="child6"><p>Dette er element #6</p></div>
+  <div class="child1"><p>This is element #1</p></div>
+  <div class="child2"><p>This is element #2</p></div>
+  <div class="child3"><p>This is element #3</p></div>
+  <div class="child4"><p>This is element #4</p></div>
+  <div class="child5"><p>This is element #5</p></div>
+  <div class="child6"><p>This is element #6</p></div>
  </div>
 </div>
 
 ## Tables go home
 
-Krydrer du denne løsningen med `grid-gap`, `grid-column` og `grid-row`, så har
-du en løsning som er like god som de gode gamle tabellene var (disse matcher
-henholdsvis `cellpadding`, `colspan` og `rowspan`). Du kan sågar også bestemme
-justering i begge retninger:
+If you spice up this setup with `grid-gap`, `grid-column`, and `grid-row`,
+you’ll have a solution as solid as the good old HTML tables (these correspond to
+`cellpadding`, `colspan`, and `rowspan`, respectively). You can even control
+alignment in both directions:
 
 ```css
 .grid-container3 {
@@ -162,27 +160,29 @@ justering i begge retninger:
 
 <div class="grid-ex">
  <div class="grid-container3">
-  <div class="child1"><p>Dette er element #1</p></div>
-  <div class="child2"><p>Dette er element #2</p></div>
-  <div class="child3"><p>Dette er element #3</p></div>
-  <div class="child4"><p>Dette er element #4</p></div>
-  <div class="child5"><p>Dette er element #5</p></div>
-  <div class="child6"><p>Dette er element #6</p></div>
+  <div class="child1"><p>This is element #1</p></div>
+  <div class="child2"><p>This is element #2</p></div>
+  <div class="child3"><p>This is element #3</p></div>
+  <div class="child4"><p>This is element #4</p></div>
+  <div class="child5"><p>This is element #5</p></div>
+  <div class="child6"><p>This is element #6</p></div>
  </div>
 </div>
 
-Den midterste kolonnen over får `auto` bredde, ikke 50%. På denne måten blir det
-plass til grid gaps uten at griddet blir bredere enn plassen det har
-tilgjengelig (`25% + 10px + 50% + 10px + 25%`).
+The middle column above gets `auto` width, not 50%. This way, there's room for
+grid gaps without the grid becoming wider than the available space (`25% +
+10px + 50% + 10px + 25%`).
 
 ## Grid units
 
-Hittil har vi angitt rad- og kolonnedimensjoner med prosent, piksler og "auto".
-Men den aller feteste enheten er den relative grid-enheten `fr`. Griddets fulle
-bredde er summen av alle `fr`-enheter du har tildelt kolonnene, og en enkelt
-kolonne vil ta opp den andelen plass som den har `fr`-enheter relativt til
-totalen. Puh! Kort sagt: med tre kolonner på `1fr`, så vil her kolonne ta opp en
-tredjedel av plassen:
+So far, we've defined row and column dimensions using percentages, pixels, and
+`auto`. But the absolute coolest unit is the relative grid unit `fr`. The full
+width of the grid is the sum of all `fr` units you've assigned to the columns,
+and a single column will take up the portion of space that its `fr` value
+represents relative to the total.
+
+In short: with three columns set to `1fr`, each column will take up one third of
+the space:
 
 ```css
 .grid-container4 {
@@ -200,16 +200,16 @@ tredjedel av plassen:
 
 <div class="grid-ex">
  <div class="grid-container4">
-  <div class="child1"><p>Dette er element #1</p></div>
-  <div class="child2"><p>Dette er element #2</p></div>
-  <div class="child3"><p>Dette er element #3</p></div>
-  <div class="child4"><p>Dette er element #4</p></div>
-  <div class="child5"><p>Dette er element #5</p></div>
-  <div class="child6"><p>Dette er element #6</p></div>
+  <div class="child1"><p>This is element #1</p></div>
+  <div class="child2"><p>This is element #2</p></div>
+  <div class="child3"><p>This is element #3</p></div>
+  <div class="child4"><p>This is element #4</p></div>
+  <div class="child5"><p>This is element #5</p></div>
+  <div class="child6"><p>This is element #6</p></div>
  </div>
 </div>
 
-For å lage en grid på 2 + 1 + 3 kan du bare fordele flere `fr`-enheter:
+To create a grid with 2 + 1 + 3, you can simply distribute more `fr` units:
 
 ```css
 .grid-container5 {
@@ -227,24 +227,24 @@ For å lage en grid på 2 + 1 + 3 kan du bare fordele flere `fr`-enheter:
 
 <div class="grid-ex">
  <div class="grid-container5">
-  <div class="child1"><p>Dette er element #1</p></div>
-  <div class="child2"><p>Dette er element #2</p></div>
-  <div class="child3"><p>Dette er element #3</p></div>
-  <div class="child4"><p>Dette er element #4</p></div>
-  <div class="child5"><p>Dette er element #5</p></div>
-  <div class="child6"><p>Dette er element #6</p></div>
+  <div class="child1"><p>This is element #1</p></div>
+  <div class="child2"><p>This is element #2</p></div>
+  <div class="child3"><p>This is element #3</p></div>
+  <div class="child4"><p>This is element #4</p></div>
+  <div class="child5"><p>This is element #5</p></div>
+  <div class="child6"><p>This is element #6</p></div>
  </div>
 </div>
 
-## Full fleks
+## Full flex
 
-Så langt har vi sett hvordan grids enkelt og elegant løser en del notorisk
-knotete problemer i CSS. Men enda gjenstår det beste: `grid-template-areas`.
-Dette er kremen på kaka som lar deg skille strukturell representasjon
-(HTML-elementene) og visuell representasjon totalt. Det fungerer sånn at du gir
-container-elementet en ascii-art-representasjon av hvilke elementer som skal
-hvor i griddet, og deretter navngir du hvert av barne-elementene. Vips, så får
-du elementene dine plassert akkurat hvor du vil.
+So far, we’ve seen how grids easily and elegantly solve some notoriously tricky
+problems in CSS. But the best is yet to come: `grid-template-areas`. This is the
+icing on the cake that lets you completely separate structural representation
+(the HTML elements) from visual representation. It works by giving the container
+element an ASCII-art representation of which elements should go where in the
+grid, and then you name each of the child elements. Voila — your elements get
+placed exactly where you want them.
 
 ```css
 .grid-container6 {
@@ -279,17 +279,17 @@ du elementene dine plassert akkurat hvor du vil.
 
 <div class="grid-ex">
  <div class="grid-container6">
-  <div class="child1"><p>Dette er element #1</p></div>
-  <div class="child2"><p>Dette er element #2</p></div>
-  <div class="child3"><p>Dette er element #3</p></div>
-  <div class="child4"><p>Dette er element #4</p></div>
-  <div class="child5"><p>Dette er element #5</p></div>
-  <div class="child6"><p>Dette er element #6</p></div>
+  <div class="child1"><p>This is element #1</p></div>
+  <div class="child2"><p>This is element #2</p></div>
+  <div class="child3"><p>This is element #3</p></div>
+  <div class="child4"><p>This is element #4</p></div>
+  <div class="child5"><p>This is element #5</p></div>
+  <div class="child6"><p>This is element #6</p></div>
  </div>
 </div>
 
-Som om ikke dete var stilig nok i seg selv kan du også bruke dette til å veldig
-visuelt og fint få elementer til å bre seg over flere rader og/eller kolonner:
+As if that wasn’t cool enough on its own, you can also use this to visually and
+neatly make elements span multiple rows and/or columns:
 
 ```css
 .grid-container7 {
@@ -335,26 +335,25 @@ visuelt og fint få elementer til å bre seg over flere rader og/eller kolonner:
 
 <div class="grid-ex">
  <div class="grid-container7">
-  <div class="child1"><p>Dette er element #1</p></div>
-  <div class="child2"><p>Dette er element #2</p></div>
-  <div class="child3"><p>Dette er element #3</p></div>
-  <div class="child4"><p>Dette er element #4</p></div>
-  <div class="child5"><p>Dette er element #5</p></div>
-  <div class="child6"><p>Dette er element #6</p></div>
+  <div class="child1"><p>This is element #1</p></div>
+  <div class="child2"><p>This is element #2</p></div>
+  <div class="child3"><p>This is element #3</p></div>
+  <div class="child4"><p>This is element #4</p></div>
+  <div class="child5"><p>This is element #5</p></div>
+  <div class="child6"><p>This is element #6</p></div>
  </div>
 </div>
 
-<strong>NB!</strong> Dette eksempelet får en layout med to kolonner (se
-nedenfor) på mobil og skjermer under 800px, tre kolonner på skjermer som er
-store nok.
+**Note!** This example creates a layout with two columns (see below) on mobile
+and screens under 800px, and three columns on larger screens.
 
-For ordens skyld nevner jeg at det også finnes andre måter å gjøre colspan og
-rowspan i CSS grids, som ikke baserer seg på `grid-template-areas`.
+For clarity, I should mention that there are also other ways to achieve colspan
+and rowspan in CSS grids that don’t rely on `grid-template-areas`.
 
-Jeg nevnte innledningsvis at CSS grids gir en ideell løsning på responsive
-layouts, og for et eksempel kan du se på ovenstående grid ved å gjøre
-nettleservinduet ditt smalere enn 800px (evt bredere enn 800px, alt ettersom).
-Man kan fullstendig brekke om layout med et lite media query:
+I mentioned earlier that CSS grids provide an ideal solution for responsive
+layouts, and as an example, you can look at the grid above by resizing your
+browser window to less than 800px (or wider than 800px, depending). You can
+completely change the layout with a simple media query:
 
 ```css
 @media screen and (max-width: 800px) {
@@ -369,32 +368,34 @@ Man kan fullstendig brekke om layout med et lite media query:
 }
 ```
 
-Det er verdt å nevne at `grid-template-areas` er en veldig programmerbar
-layout-mekanisme, og kan lett brukes til å programmatisk styre layouten i appene
-dine. Eksempler på dette kommer i en senere bloggpost.
+It’s worth mentioning that `grid-template-areas` is a highly programmable layout
+mechanism and can easily be used to programmatically control the layout in your
+apps. Examples of this will follow in a later blog post.
 
-## Hva med Internet Explorer?
+## What about Internet Explorer?
 
-Det er ikke uten en viss mengde frustrasjon at vi i 2019 fortsatt må stille oss
-dette spørsmålet, men vi lever i en vanskelig tid. En tid der det stadig finnes
-folk med IE11 på internett. IE11 (og Edge, opp til versjon 15) implementerer et
-tidlig utkast av CSS grids, og med dette kan du [få enkelte ting til å
-fungere](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/dev-guides/hh673533\(v=vs.85\))
-([Mozilla har også noen tips](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_and_Progressive_Enhancement)).
-Av de tingene jeg har vist frem her er for eksempel `grid-template-areas` ikke
-mulig å få til i disse nettleserne.
+It is not without a certain amount of frustration that it's 2019 and we still
+have to ask this question. We live in difficult times. A time when there are
+still people using IE11 on the internet. IE11 (and Edge up to version 15)
+implements an early draft of CSS grids, and with this you can [make some things
+work](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/dev-guides/hh673533(v=vs.85))
+([Mozilla also has some
+tips](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_and_Progressive_Enhancement)).
 
-Jeg har sluttet å ha dette problemet ved å rett og slett droppe `display:
--ms-grid`. Da får IE bare en masse blokkelementer under hverandre. Ting er
-fortsatt funksjonelt, men tar større plass og har ingen elementer side-om-side.
-Gitt den lave andelen brukere som har disse utdaterte nettleserne lever vi i
-mitt prosjekt helt fint med denne løsningen. Andre anmodes om å se på egen
-nettleserstatstikk før dere vurderer om det kan fungere for deres prosjekter.
+Of the things I’ve shown here, for example, `grid-template-areas` is not
+possible in these browsers.
 
-## Lær mer
+I’ve stopped dealing with this problem by simply dropping `display: -ms-grid`.
+IE then just shows a bunch of block elements stacked vertically. It’s still
+functional, but takes up more space and has no elements side-by-side. Given the
+low share of users still using these outdated browsers, my project is perfectly
+fine with this solution. Others are advised to check their own browser
+statistics before deciding if this works for their projects.
 
-Hvis du nå er like frelst som meg vil du sikkert lære deg mer grids - det er
-masse detaljer som jeg ikke har dekket her. Jeg kan varmt anbefale
-[css-tricks.com sin visuelle
-guide](https://css-tricks.com/snippets/css/complete-guide-grid/) - den dekker
-det meste med visuelle eksempler. Jeg bruker den jevnlig som oppslagsverk.
+## Learn more
+
+If you’re as enthusiastic as I am, you’ll probably want to learn more about
+grids — there are lots of details I haven’t covered here. I highly recommend
+[css-tricks.com’s visual
+guide](https://css-tricks.com/snippets/css/complete-guide-grid/) — it covers
+most of it with visual examples. I regularly use it as a reference.

@@ -1,19 +1,19 @@
 --------------------------------------------------------------------------------
 :page/title Devops! Dev? Ops!
-:page/locale :nb
+:page/locale :en
 :tech-blog/published #time/ldt "2019-12-17T12:00"
 :tech-blog/tags [:tag/aws]
 :open-graph/description
 
-Devops føyer seg inn i rekken av begreper som en gang betød noe, men som
-bransjen har radbrukket. Rant i anmarsj!
+Devops joins the ranks of buzzwords that once meant something but which the
+industry has butchered. Rant incoming!
 
 :tech-blog/description
 
-Det skorter for tiden ikke på bedrifter i IT-sfæren som skryter av at de driver
-med Devops. Men gjør de egentlig det? Hvis løsningen er et "devops-team" eller
-stillingsutlysninger for "en devopser", er sjansen dessverre liten for at vi
-henter ut det beste devops har å by på.
+There is currently no shortage of companies in the IT world boasting about doing
+Devops. But are they really? If the solution is a "devops team" or job ads for
+"a devopser," unfortunately the chances of getting the best that devops has to
+offer are slim.
 
 --------------------------------------------------------------------------------
 :section/kind :centered
@@ -21,137 +21,139 @@ henter ut det beste devops har å by på.
 :section/title Devops! Dev? Ops!
 :section/body
 
-Det skorter for tiden ikke på bedrifter i IT-sfæren som skryter av at de driver
-med Devops. Men gjør de egentlig det? Hvis løsningen er et "devops-team" eller
-stillingsutlysninger for "en devopser", er sjansen dessverre liten for at vi
-henter ut det beste devops har å by på.
+There is currently no shortage of companies in the IT world boasting about doing
+Devops. But are they really? If the solution is a "devops team" or job ads for
+"a devopser," unfortunately the chances of getting the best that devops has to
+offer are slim.
 
 --------------------------------------------------------------------------------
 :section/body
 
-La oss starte med en tilnærming til en definisjon: Hva er egentlig devops?
+Let’s start with an approach to a definition: What really is devops?
 
-1. En ops-person som kan YAML?
-2. En utvikler som kan provisjonere infrastruktur med YAML?
-3. En kultur?
+1. An ops person who knows YAML?
+2. A developer who can provision infrastructure with YAML?
+3. A culture?
 
-Selv holder jeg en knapp på alternativ 3.
+I personally put my bet on option 3.
 
 --------------------------------------------------------------------------------
-:section/title Devops i mine øyne
+:section/title Devops in my eyes
 :section/theme :light1
 :section/body
 
-Devops-begrepet stammer såvidt meg bekjent fra
-[Devopsdays](https://devopsdays.org/about), en konferanse om software-utvikling,
-IT-drift, og samhandling derimellom.
+The term Devops, as far as I know, comes from
+[Devopsdays](https://devopsdays.org/about), a conference about software
+development, IT operations, and the collaboration between them.
 
 <blockquote class="bq text-content">
-  <div class="bq-source"><a href="https://www.kodemaker.no/devops/">Kodemakers sider om devops</a></div>
+  <div class="bq-source"><a href="https://www.kodemaker.no/devops/">Kodemakers pages about devops</a></div>
   <div class="bq-quote">
     <p>
-DevOps-bevegelsen jobber for å redusere den tradisjonelle motsetningen mellom
-endringsfokuset i softwareutvikling og stabilitetsfokuset i IT-drift. Om du
-ønsker å øke endringstakten i softwareutvikling er det å satse på DevOps noe
-du bør sette høyt på prioriteringslisten.
+The DevOps movement works to reduce the traditional conflict between
+the change focus of software development and the stability focus of IT operations. If you
+want to increase the rate of change in software development, investing in DevOps
+should be high on your priority list.
     </p>
     <p>
-Blant kjerneverdiene i DevOps regnes kultur, automatisering, måling og
-deling.
+Among the core values in DevOps are culture, automation, measurement, and
+sharing.
     </p>
   </div>
 </blockquote>
 
-Kjernen her er altså en kultur for samarbeid, hvor alle har bedriftens nøkkelmål
-som styrepinne, i stedet for at enhver kun fokuserer på sin lille tue.
+The core here is thus a culture of collaboration, where everyone has the
+company’s key goals as their guiding principle, instead of each focusing only on
+their own small patch.
 
 --------------------------------------------------------------------------------
-:section/title Devops i praksis
+:section/title Devops in practice
 :section/body
 
-Hvordan ser dette ut i praksis? Det kan selvfølgelig arte seg som "en utvikler
-som kan provisjonere infrastruktur med YAML", som jeg noe sleivete skrev
-innledningsvis. Mange bedrifter har i dag autonome team der utviklerne selv er
-ansvarlige for sine egne produksjonsmiljøer, og tar eierskap til disse som en
-del av økosystemet til sine applikasjoner. Dersom komptansen på teamet er bred
-nok mener jeg at dette er en av de aller mest effektive måten å jobbe med
-software i dag.
+What does this look like in practice? It can of course manifest as "a developer
+who can provision infrastructure with YAML," as I somewhat cheekily wrote
+earlier. Many companies today have autonomous teams where developers themselves
+are responsible for their own production environments, and take ownership of
+these as part of the ecosystem around their applications. If the competence in
+the team is broad enough, I believe this is one of the most effective ways to
+work with software today.
 
-En annen måte å praktisere devops på er å bygge bro mellom tradisjonelle
-utviklings- og driftsmiljøer. Da jeg jobbet på NRK for noen år siden ble dette
-gjort på en svært vellykket måte: IT-drift gikk fra å eie drift av applikasjoner
-til å tilby en platform - Mesos og Marathon i første omgang - som gjorde
-utviklerne i stand til å deploye oftere og med bedre forutsigbarhet. Deretter
-ble det satt driftsfolk ut i utviklingsteamene for å jobbe tett sammen med
-utviklerne.
+Another way to practice devops is to bridge traditional development and
+operations environments. When I worked at NRK a few years ago, this was done
+very successfully: IT operations moved from owning the operation of applications
+to offering a platform — Mesos and Marathon at first — which enabled developers
+to deploy more often and with better predictability. Then operations staff were
+embedded in development teams to work closely with developers.
 
-På denne måten fikk utviklerne ta mer eierskap i deploymentet av appene sine
-(konfigurasjon osv), mens man fortsatt hadde høyt kvalifiserte driftspersoner
-til å ta seg av nettverk, hardware, og alle de vanskelige tingene. Samtidig
-utviklet man en kultur for samarbeid ved å ha driftsfolk i utviklingsteamene som
-kunne bidra med feilsøking, hjelpe til med oppsett av monitorering, og fungere
-som en bro mot driftsavdelingen. Kulturutvikling. Resultatet var hyppigere
-leveranser, kortere tid til å rette feil, og mer effektive IT-arbeidere.
+In this way, developers took more ownership of the deployment of their apps
+(configuration etc.), while still having highly qualified operations people to
+take care of networking, hardware, and all the difficult stuff. At the same
+time, a culture of collaboration was developed by having operations people in
+development teams who could contribute to debugging, help set up monitoring, and
+serve as a bridge to the operations department. Culture development. The result
+was more frequent releases, shorter time to fix bugs, and more efficient IT
+workers.
 
 --------------------------------------------------------------------------------
-:section/title Devops på tverke
+:section/title Devops gone wrong
 :section/theme :dark1
 :section/body
 
-Ettersom devops blir mer og mer populært blir det dessverre også stadig
-vanligere å implementere en misforstått prosess og kalle den devops. Dette er
-ikke noe nytt, vi i IT-bransjen elsker å pynte oss med nye begreper og
-bevegelser uten å egentlig endre hvordan vi jobber. Hvor mange selskaper er det
-ikke som smykker seg med "smidig" samtidig som deres prosesser er alt annet enn
-nettopp smidige?
+As devops becomes more and more popular, it unfortunately also becomes
+increasingly common to implement a misunderstood process and call it devops.
+This is nothing new; we in the IT industry love to dress ourselves up with new
+buzzwords and movements without really changing how we work. How many companies
+don’t adorn themselves with "agile" while their processes are anything but
+agile?
 
-Mange bedrifter søker i dag etter en devops-utvikler til sitt devops-team. Når
-vi koker en hel kultur ned til en stillingsbeskrivelse og/eller et separat team,
-så går vi glipp av fordelene som ligger i å endre kulturen på tvers av hele
-selskapet.
+Many companies today are looking for a devops developer for their devops team.
+When we boil an entire culture down to a job description and/or a separate team,
+we lose the benefits that come from changing the culture across the entire
+company.
 
-## Hva gjør "en devopser"?
+## What does "a devopser" do?
 
-Hva gjør så et devops-team? Jo, de bygger platform. I dag bader vi i verktøy fra
-de store tech-selskapene som vi selv kan sette opp hos en skyleverandør eller på
-en intern maskinpark. Disse løsningene er ofte så kompliserte at det kreves et
-team med infrastruktur-interesserte mennesker å skru dem sammen. Her tror jeg vi
-finner opphavet til mange devops-team: De driver ikke med devops så mye som de
-driver med tradisjonell IT-drift, men med moderne verktøy. Verktøy som kanskje
-er designet for å løse [betydelig vanskeligere problemer enn de selv
-har](https://mobile.twitter.com/Carnage4Life/status/1205664370920833025).
+So what does a devops team do? They build platforms. Today we are swimming in
+tools from the big tech companies that we ourselves can set up with a cloud
+provider or on internal hardware. These solutions are often so complex that they
+require a team of infrastructure-interested people to put them together. Here I
+think we find the origin of many devops teams: They are not really doing devops
+so much as they are doing traditional IT operations, but with modern tools.
+Tools that perhaps are designed to solve [much harder problems than they
+themselves
+have](https://mobile.twitter.com/Carnage4Life/status/1205664370920833025).
 
 ![Galactic Algorithm](/images/galactic-algorithm.jpg)
 
-Men er det noe galt i et ops-team som jobber med platform til utviklerne da?
-Ikke nødvendigvis. Men hele poenget med devops er denne kulturen - alle jobber
-sammen for å levere i produksjon og for å hjelpe bedriften å nå sine mål. Dersom
-du har et devops-team som koser seg mer med å skrive Terraform og konfigurere
-Kubernetes og Istio enn å faktisk sørge for at bedriften når sine mål så blir
-det feil å kalle det "devops".
+But is there anything wrong with an ops team working on platforms for
+developers? Not necessarily. But the whole point of devops is this culture —
+everyone works together to deliver to production and help the company reach its
+goals. If you have a devops team that enjoys writing Terraform and configuring
+Kubernetes and Istio more than actually making sure the company hits its goals,
+then calling it "devops" is wrong.
 
-Er det galt at noen bruker mye tid på å sette opp Kubernetes og økosystemet
-rundt på en måte som er tilpasset bedriftens behov da? Nei, kanskje ikke. Men
-har vi virkelig bedriftens behov i minne? Husker vi på å tenke
-[MVP](https://en.wikipedia.org/wiki/Minimum_viable_product)? Dette prinsippet
-gjelder også for infrastruktur - og jeg mener ikke at vi skal ha usikker og
-skranglete infrastruktur - den skal være "viable". Men vi skal ikke gjøre den
-mer komplisert enn den trenger å være. Og vi må huske på at den skal være
-hyggelig for utviklerne å bruke - det er de som er kunden til en sånn løsning.
-Dersom devops-teamet har sittet på bakrommet i månedsvis og kokt opp en løsning
-som utviklerne hater å deploye på, så bommer vi på mål.
+Is it wrong for some to spend a lot of time setting up Kubernetes and the
+ecosystem around it in a way that fits the company’s needs? No, maybe not. But
+do we really keep the company’s needs in mind? Do we remember to think about
+[MVP](https://en.wikipedia.org/wiki/Minimum_viable_product)? This principle also
+applies to infrastructure — and I’m not saying it should be insecure and rickety
+— it should be "viable." But it should not be more complicated than it needs to
+be. And we must remember that it should be pleasant for developers to use — they
+are the customers of such a solution. If the devops team has been locked away
+for months cooking up a solution that developers hate to deploy on, then we have
+missed the point.
 
 --------------------------------------------------------------------------------
-:section/title Devops på sitt beste
+:section/title Devops at its best
 :section/body
 
-Jeg vil avslutte med en anbefaling. Alle som jobber med software-utvikling i
-dag, enten operativt som utvikler, med drift, eller i en eller annen
-forretningsfunksjon/lederstilling tett på IT: Les [The Phoenix
+I want to leave you with a recommendation. Everyone working with software
+development today, whether operationally as a developer, in operations, or in
+some business function/leadership role close to IT: Read [The Phoenix
 Project](https://www.amazon.com/Phoenix-Project-DevOps-Helping-Business/dp/0988262592).
-Denne romanen eksemplifiserer billedlig og vakkert hvordan en devops-kultur kan
-se ut. Selv gleder jeg meg til å lese oppfølgeren [The Unicorn
+This novel beautifully and vividly exemplifies what a devops culture can look
+like. I’m personally looking forward to reading the sequel [The Unicorn
 Project](https://www.amazon.com/Unicorn-Project-Developers-Disruption-Thriving-ebook/dp/B07QT9QR41)
-i jula, som etter omtalen å bedømme er minst like god.
+over the holidays, which from reviews appears to be just as good.
 
-God devopsing!
+Happy devopsing!

@@ -3,9 +3,10 @@
 :tech-blog/published #time/ldt "2018-03-31T12:00"
 :tech-blog/updated #time/ldt "2021-03-25T10:00"
 :tech-blog/tags [:tag/clojure]
-:open-graph/description
+:tech-blog/description
 
-A step by step howto.
+How to write a Clojure macro that exposes Optimus' optimized paths to the
+client-side ClojureScript build.
 
 --------------------------------------------------------------------------------
 :section/kind :centered

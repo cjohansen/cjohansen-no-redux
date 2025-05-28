@@ -1,10 +1,10 @@
 --------------------------------------------------------------------------------
-:page/title Securing HAProxy sites with Let's Encrypt SSL Certificates
+:page/title Securing HAProxy sites with Let's Encrypt TLS Certificates
 :tech-blog/published #time/ldt "2018-03-10T12:00"
 :tech-blog/tags [:tag/haproxy :tag/letsencrypt :tag/https]
-:open-graph/description
+:tech-blog/description
 
-A step by step howto.
+A step by step howto on setting up Let's Encrypt TLS certificates with HAProxy.
 --------------------------------------------------------------------------------
 :section/theme :dark1
 :section/title Securing HAProxy sites with Let's Encrypt SSL Certificates

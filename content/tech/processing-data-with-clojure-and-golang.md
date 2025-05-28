@@ -2,7 +2,7 @@
 :page/title Processing data with Clojure and Go
 :tech-blog/published #time/ldt "2018-04-20T12:00"
 :tech-blog/tags [:tag/clojure :tag/go :tag/spotify]
-:open-graph/description
+:tech-blog/description
 
 Porting some recent Go code to Clojure, and musing a little about the difference
 between these two languages when it comes to data processing (performance,

@@ -1,20 +1,21 @@
 --------------------------------------------------------------------------------
 :page/title JavaScript Coercion 101
-:page/locale :nb
+:page/locale :en
 :tech-blog/published #time/ldt "2019-11-27T12:00"
-:tech-blog/tags [:javascript]
+:tech-blog/tags [:tag/javascript]
 :open-graph/description
 
-Hvis du jobber med JavaScript (eller ting som kompilerer til JavaScript) er det
-greit å vite hvordan språket stadig konverterer verdier. Det lærer du her.
+If you work with JavaScript (or things that compile to JavaScript), it's good to
+know how the language constantly converts values. I'll teach you, and it'll only
+take a few minutes.
 
 :tech-blog/description
 
-Det er lite vi utviklere elsker mer enn å peke på galskap i JavaScript, så som
-`[] + 2 === "2"`, men dersom jobben din er å skrive kode i dette språket, eller
-språk som kompilerer til JavaScript uten å skjule denne oppførselen (eksempelvis
-TypeScript og ClojureScript) vil du spare mye tid i feilsøking og koding ved å
-forstå _hvorfor_ ting er som de er.
+Developers love pointing out the madness in JavaScript, like `[] + 2 === "2"`,
+but if your job is to write code in this language, or languages that compile to
+JavaScript without hiding this behavior (for example TypeScript and
+ClojureScript), you will save a lot of time debugging and coding by
+understanding _why_ things are the way they are.
 
 --------------------------------------------------------------------------------
 :section/kind :centered
@@ -22,20 +23,19 @@ forstå _hvorfor_ ting er som de er.
 :section/title JavaScript Coercion 101
 :section/body
 
-Det er lite vi utviklere elsker mer enn å peke på galskap i JavaScript, så som
-`[] + 2 === "2"`, men dersom jobben din er å skrive kode i dette språket, eller
-språk som kompilerer til JavaScript uten å skjule denne oppførselen (eksempelvis
-TypeScript og ClojureScript) vil du spare mye tid i feilsøking og koding ved å
-forstå _hvorfor_ ting er som de er.
+Developers love pointing out the madness in JavaScript, like `[] + 2 === "2"`,
+but if your job is to write code in this language, or languages that compile to
+JavaScript without hiding this behavior (for example TypeScript and
+ClojureScript), you will save a lot of time debugging and coding by
+understanding _why_ things are the way they are.
 
 --------------------------------------------------------------------------------
 :section/body
 
-JavaScript er et dynamisk språk med over gjennomsnittet finurlige regler for
-automatisk typekonvertering -- "coercion". Heldigvis er det færre regler enn det
-kan virke som, men sammen kan de by på mang en overraskelse for enhver. Kan du
-reglene så vil du ikke bli overrasket over dette kodeeksempelet som noen nylig
-viste meg:
+JavaScript is a dynamic language with more than average quirky rules for
+automatic type conversion -- "coercion". Luckily, there are fewer rules than it
+may seem, but together they can surprise anyone. If you know the rules, you
+won't be surprised by this code example someone recently showed me:
 
 ```js
 -1 < null // true
@@ -43,59 +43,58 @@ null < 1 // true
 0 == null // false (exploding head)
 ```
 
-Altså: fordi `null` er større enn -1, men mindre enn 1, forventet man at den i
-det minste skulle være lik `0`, noe den ikke er. Les videre for å lære hvorfor.
+So: because `null` is greater than -1, but less than 1, it was expected that it
+at least would be equal to `0`, which it is not. Read on to learn why.
 
 --------------------------------------------------------------------------------
-:section/title Konverteringer
+:section/title Conversions
 :section/theme :light1
 :section/body
 
-La oss starte med de reglene for konvertering som finnes, så kan vi se på bruken
-av dem etterpå.
+Let's start with the rules for conversion. We'll look at their usage later.
 
-### Primitiver
+### Primitives
 
-For å konvertere en primitiv til en streng, altså `String(val)`:
+To convert a primitive to a string, i.e. `String(val)`:
 
-- Tall blir tallene som strenger, altså `"32"`
-- Booleans blir `"true"` eller `"false"`
-- `null` og `undefined` blir henholdsvis `"null"` og `"undefined"`
+- Numbers become their string representations, e.g. `"32"`
+- Booleans become `"true"` or `"false"`
+- `null` and `undefined` become `"null"` and `"undefined"` respectively
 
-For å konvertere en primitiv til et tall, `Number(val)`:
+To convert a primitive to a number, `Number(val)`:
 
-- Strenger leses som tall, `"23"` blir `23`, men strenger som inneholder
-  ugyldige tegn blir `NaN`.
-- `true` blir `1`, `false` blir `0`
-- `null` blir `0`
-- `undefined` blir `NaN`
+- Strings are parsed as numbers, `"23"` becomes `23`, but strings containing
+  invalid characters become `NaN`.
+- `true` becomes `1`, `false` becomes `0`
+- `null` becomes `0`
+- `undefined` becomes `NaN`
 
-For å konvertere en primitiv til en boolean, `Boolean(val)`:
+To convert a primitive to a boolean, `Boolean(val)`:
 
-- `0`, `null`, `undefined`, `""`, `NaN` (og `false`) blir `false` (disse
-  verdiene er såkalte "falsy values").
-- Alt annet blir `true` ("truthy values").
+- `0`, `null`, `undefined`, `""`, `NaN` (and `false`) become `false` (these
+  values are so-called "falsy values").
+- Everything else becomes `true` ("truthy values").
 
-### Objekter
+### Objects
 
-Ikke-primitive verdier konverteres først til en streng eller et tall, deretter
-videre til feks en boolean, dersom det er nødvendig.
+Non-primitive values are first converted to a string or a number, then possibly
+further to e.g. a boolean, if necessary.
 
-Et objekt konverteres til en primitiv via:
+An object is converted to a primitive via:
 
-- `.valueOf`, hvis objektet har den, og den returnerer et tall
-- `.toString`, hvis objektet har den, og den returnerer en streng
+- `.valueOf`, if the object has it and it returns a number
+- `.toString`, if the object has it and it returns a string
 
-I praksis er det sjelden man implementerer disse direkte, men alle
-JavaScript-objekter arver fra `Object.prototype`, som definerer begge:
+In practice, it is rare to implement these directly, but all
+JavaScript objects inherit from `Object.prototype`, which defines both:
 
-- `valueOf` returnerer `this`, altså `obj === obj.valueOf()`
-- `toString` returnerer stort sett `"[object Object]"`
+- `valueOf` returns `this`, so `obj === obj.valueOf()`
+- `toString` usually returns `"[object Object]"`
 
-Fordi den innebygde `valueOf` ikke returnerer et tall så er det stort sett
-`toString` som benyttes for primitiv-konvertering, med mindre man aktivt har
-jobbet for noe annet. Et unntak verdt å merke seg er `Date`, som returnerer
-timestamp fra `valueOf`:
+Since the built-in `valueOf` does not return a number, it is usually
+`toString` that is used for primitive conversion, unless you have actively
+done otherwise. One notable exception is `Date`, which returns
+a timestamp from `valueOf`:
 
 ```js
 var now = new Date();
@@ -106,13 +105,13 @@ now.valueOf() === now.getTime();
 :section/title A wild coercion appears
 :section/body
 
-Nå som du har peiling på hvilke regler som styrer konvertering kan vi se litt på
-hvor disse reglene tas i bruk.
+Now that you understand which rules govern conversion, let's look a bit at
+where these rules are applied.
 
-### < og >
+### < and >
 
-Disse to operatorene gir kun mening for tall, og konverter sine argumenter til
-tall:
+These two operators only make sense for numbers, and convert their arguments to
+numbers:
 
 ```js
 3 < "4" //=> 3 < Number("4")
@@ -128,9 +127,9 @@ null < 1 //=> Number(null) < 1
           //=> true
 ```
 
-Med det eksempelet har vi fått forklart 2/3 av det første kodeeksempelet vårt.
+With that example, we have explained 2/3 of our first code example.
 
-Legg merke til at dette kan bli nokså klovnete med objekter:
+Note that this can get quite tricky with objects:
 
 ```js
 var clown = {
@@ -146,7 +145,7 @@ clown < 33 //=> ToPrimitive(clown) < 33
            //=> true
 ```
 
-Eller med `toString`:
+Or with `toString`:
 
 ```js
 var clown = {
@@ -163,17 +162,17 @@ clown < 57 //=> ToPrimitive(clown) < 57
 
 ### +
 
-`+`-operatoren i JavaScript er, som så mye annet, litt mer bingo enn i andre
-språk. Som i andre språk gjør den enten streng-konkatenering eller addisjon, men
-i motsetning til andre språk så blander den gjerne disse to i ett og samme
-uttrykk.
+The `+` operator in JavaScript is a bit more unpredictable than in other
+languages. Like in other languages, it either performs string concatenation or
+addition, but unlike other languages, it often mixes these two in the same
+expression.
 
-Har du en streng eller et objekt på en av sidene får du konkatenering -- ellers
-får du addisjon. For konkatenering må begge argumentene konverteres til
-strenger, for addisjon må begge konverteres til tall. Har du flere plusser i
-samme uttrykk følger du denne regelen én pluss om gangen.
+If you have a string or an object on either side, you get concatenation —
+otherwise, you get addition. For concatenation, both arguments are converted to
+strings; for addition, both are converted to numbers. If you have multiple plus
+signs in the same expression, you apply this rule one plus at a time.
 
-Noen eksempler med tall:
+Some examples with numbers:
 
 ```js
 2 + 3 //=> 5
@@ -187,9 +186,9 @@ true + 4 //=> Number(true) + 4
          //=> 5
 ```
 
-Fordi du kun får konkatenering når du har et objekt med i dansen, kan du få et
-uventet resultat dersom du prøver å addere et tall med et objekt som helt fint
-kan konverteres til et tall:
+Because you only get concatenation when you have an object involved, you can get
+an unexpected result if you try to add a number to an object that can perfectly
+well be converted to a number:
 
 ```js
 var then = new Date(2019, 0, 1);
@@ -197,15 +196,15 @@ var then = new Date(2019, 0, 1);
 then + 1000 //=> "Tue Jan 01 2019 00:00:00 GMT+0100 (CET)1000"
 ```
 
-Hva skjedde? Vel, siden ett argument var et objekt er det streng-konkatering som
-gjelder, og dermed får vi:
+What happened? Well, since one argument was an object, string concatenation
+applies, and thus we get:
 
 ```js
 then.toString() + String(1000)
 "Tue Jan 01 2019 00:00:00 GMT+0100 (CET)" + "1000"
 ```
 
-Dersom du har et lengre uttrykk evaluerer du bare én og en pluss:
+If you have a longer expression, you only evaluate one plus at a time:
 
 ```js
 2 + 3 + true + []
@@ -216,7 +215,7 @@ Dersom du har et lengre uttrykk evaluerer du bare én og en pluss:
     //=> "6" + ""
 ```
 
-En array har en `toString` som fungerer som `.join(",")`:
+An array has a `toString` that works like `.join(",")`:
 
 ```js
 2 + [1, 2, 3] + true
@@ -226,42 +225,38 @@ En array har en `toString` som fungerer som `.join(",")`:
     //=> "21,2,3true"
 ```
 
-
 --------------------------------------------------------------------------------
 :section/title ==
 :section/theme :dark1
 :section/body
 
-Helt til slutt har vi JavaScripts aller mest skrullete operator, nemlig `==`.
-Den er såppass kompleks at man bare burde la være å bruke den. Men den var en
-del av det opprinnelige eksempelet, så la oss fort se på [algoritmen bak
-den](https://www.ecma-international.org/ecma-262/10.0/index.html#sec-abstract-equality-comparison):
+Finally, we have JavaScript’s quirkiest operator, `==`. It’s so complex that you
+really shouldn’t use it. But since it was part of the original example, let’s
+quickly look at [the algorithm behind
+it](https://www.ecma-international.org/ecma-262/10.0/index.html#sec-abstract-equality-comparison):
 
-`x == y` gir alltid enten `true` eller `false`.
+`x == y` always returns either `true` or `false`.
 
-1. Dersom `x` og `y` har samme type (`typeof`, ikke type på objekt) så returner
-   `x === y` (primitive verdier matcher "seg selv" - bortsett fra `NaN`, objekt
-   `x` og `y` er kun like dersom det er samme instans - ingen verdi-likhet for
-   objekter).
-2. Hvis `x` og `y` begge er `null` eller `undefined`, returner `true`
-3. Hvis ett argument er et tall og det andre en streng, konverter strengen til
-   et tall og start på nytt
-4. Hvis én av argumentene er en boolean, konverter den til et tall og start på
-   nytt (!!!)
-5. Hvis én av argumentene er et objekt, konverter til en primitiv og start på
-   nytt
-6. Returner `false`
+1. If `x` and `y` have the same type (`typeof`, not object type), return `x ===
+   y` (primitive values only match "themselves" — except for `NaN`; objects `x`
+   and `y` are equal only if they are the same instance — no value equality for
+   objects).
+2. If both `x` and `y` are `null` or `undefined`, return `true`.
+3. If one argument is a number and the other a string, convert the string to a
+   number and start over.
+4. If one argument is a boolean, convert it to a number and start over (!!!).
+5. If one argument is an object, convert it to a primitive and start over.
+6. Return `false`.
 
-Som sagt, dette er ikke et verktøy det er verdt å allokere hjernekapasitet til å
-håndtere -- bruk `===`. Men, til vårt opprinnelige eksempel: hvordan kan `-1 <
-null` og `null < 1` når `0 != null`? De to første ble forklart over, men la oss
-bryte ned den siste:
+As said, this is not a tool worth allocating brainpower to handle — use `===`.
+But for our original example: how can `-1 < null` and `null < 1` be true when `0
+!= null`? The first two were explained above, but let’s break down the last one:
 
-1. `0` og `null` har ikke samme type (`"number"` vs `"object"`)
-2. Ett argument er `null` eller `undefined`, men ikke det andre
-3. Ingen av argumentene er en streng
-4. Ingen av argumentene er en boolean
-5. `null` er ikke et objekt
-6. Returner `false`
+1. `0` and `null` don’t have the same type (`"number"` vs `"object"`)
+2. One argument is `null` or `undefined`, but not the other
+3. Neither argument is a string
+4. Neither argument is a boolean
+5. `null` is not an object
+6. Return `false`
 
-Og der har du forklaringen.
+And there you have the explanation.
