@@ -1,8 +1,7 @@
 (ns cjohansen.ingest
   (:require [clojure.string :as str]
             [datomic-type-extensions.api :as d]
-            [powerpack.dev :as dev]
-            [powerpack.markdown :as md]))
+            [powerpack.dev :as dev]))
 
 (defn update-in-existing [m path & args]
   (if-not (nil? (get-in m path))
@@ -11,7 +10,6 @@
 
 (defn ingest-section [page index section]
   (-> section
-      (update-in-existing [:section/body] md/render-html)
       (dissoc :page/uri)
       (assoc :section/number index)
       (assoc :section/id (str (:page/uri page) "-section-" index))))
@@ -43,14 +41,8 @@
    :page/uri (str "/" (str/replace (str/lower-case v) #"[^a-z0-9]+" "-") "/")
    :page/kind :page.kind/tech-tag})
 
-(defn prepare-page-data [pages]
-  (for [page pages]
-    (cond-> page
-      (:page/body page)
-      (update :page/body md/render-html))))
-
 (defn create-tx [file-name datas]
-  (cond->> (prepare-page-data datas)
+  (cond->> datas
     (re-find #"^tech\/" file-name)
     ingest-tech-blog-post
 

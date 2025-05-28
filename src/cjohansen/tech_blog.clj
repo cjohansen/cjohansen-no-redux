@@ -15,9 +15,10 @@
        reverse
        (map #(d/entity db (first %)))))
 
-(defn prepare-teaser [{:tech-blog/keys [short-title description published tags] :page/keys [title uri]}]
+(defn prepare-teaser [{:tech-blog/keys [short-title description published updated tags] :page/keys [title uri]}]
   {:title (or short-title title)
    :published (time/ymd published)
+   :updated (some-> updated time/ymd)
    :url uri
    :description (md/render-html description)
    :kind :article
@@ -43,12 +44,13 @@
     :heading-level 2
     :meta (when (or (:published section) (:updated section))
             {:published (:published section) :updated (:updated section)})
-    :content body
+    :content (md/render-html body)
     :theme theme
     :kind kind}))
 
 (defn render-page [_ctx blog-post]
   (layout/layout
+   {:title (:page/title blog-post)}
    (e/simple-header)
    (->> (:sectioned/sections blog-post)
         (sort-by :section/number)
@@ -58,6 +60,7 @@
 
 (defn render-frontpage [ctx page]
   (layout/layout
+   {:title "Christian Johansen"}
    (e/header)
    (when-let [description (:page/body page)]
      (e/section {:content (md/render-html description)}))

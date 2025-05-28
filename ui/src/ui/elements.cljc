@@ -3,9 +3,9 @@
 
 (defn el [el params text]
   [(get params :element el)
-   {:className (str (name el)
-                    (when-let [cn (:className params)]
-                      (str " " cn)))} text])
+   {:class (str (name el)
+                (when-let [cn (:class params)]
+                  (str " " cn)))} text])
 
 (def h1 (partial el :h1))
 (def h2 (partial el :h2))
@@ -41,7 +41,7 @@
 
 (defn section [{:keys [title sub-title content media meta heading-level note] :as props}]
   (let [heading-level (or heading-level 1)]
-    [:div.section {:className (section-class props)}
+    [:div.section {:class (section-class props)}
      [:div.content
       (when media
         [:div.media
@@ -75,7 +75,7 @@
 
 (defn section-media [{:keys [media title size] :as props}]
   [:div.media-wide
-   {:className
+   {:class
     (section-class
      props
      (if size
@@ -151,7 +151,7 @@
       [:td [:strong percent]]])])
 
 (defn captioned [{:keys [content caption class]}]
-  [:div.captioned {:className class}
+  [:div.captioned {:class class}
    content
    [:div.caption [:p caption]]])
 
@@ -169,17 +169,17 @@
     :class (str (caption-themes theme) (when pop? " captioned-pop"))}))
 
 (defn teaser [{:keys [url media title description pitch kind] :as props}]
-  [:div.teaser {:className (when kind (str "teaser-" (name kind)))}
+  [:div.teaser {:class (when kind (str "teaser-" (name kind)))}
    (when media [:div.media [:a {:href url} media]])
    [:div.teaser-content
     (when pitch
-      (h5 {:className "subtle"} pitch))
+      (h5 {:class "subtle"} pitch))
     (h4 {} [:a {:href url} title])
     description
     (byline props)]])
 
 (defn teaser-section [{:keys [title sub-title teasers] :as props}]
-  [:div.section {:className (section-class props "teasers")}
+  [:div.section {:class (section-class props "teasers")}
    [:div.content
     [:div.section-content
      (when title (h2 {} title))

@@ -1,5 +1,6 @@
 (ns cjohansen.dev
   (:require [cjohansen.core :as cjohansen]
+            [dataspex.core :as dataspex]
             [powerpack.dev :as dev :refer [reset]]
             [powerpack.export :as export]))
 
@@ -18,5 +19,6 @@
   (export/export (cjohansen/create-app))
 
   (dev/get-app)
+  (dataspex/inspect "DB" (:datomic/conn (dev/get-app)))
 
   )
