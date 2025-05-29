@@ -729,3 +729,38 @@ body .text-content :last-child {
   .teaser .h5 {display: block;}
   .footer-content {max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; padding: 0 20px;}
 }
+
+.gif-movie {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.gm-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.3);
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    transition: opacity 0.25s ease;
+}
+
+.gmpb-head {
+    width: 74px;
+    height: 74px;
+    border-style: solid;
+    border-width: 37px 0px 37px 74px;
+    box-sizing: border-box;
+    border-color: transparent transparent transparent #ffffff;
+    position: absolute;
+    top: 33px;
+    left: 40px;
+}
+
+.gif-movie .gm-movie {
+    display: none;
+}
