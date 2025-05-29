@@ -27,6 +27,8 @@ then this post is for you.
 --------------------------------------------------------------------------------
 :section/body
 
+[På Norsk](https://www.kodemaker.no/blogg/2023-06-dialog/).
+
 How many dropdown menus, dialogs, and modals have you built for a web app? And
 how many of them had the correct [ARIA
 attributes](https://developer.mozilla.org/en-US/docs/web/Accessibility/ARIA/Attributes),

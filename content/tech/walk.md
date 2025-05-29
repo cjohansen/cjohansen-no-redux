@@ -23,6 +23,8 @@ look at two tiny but extremely handy functions: `clojure.walk/postwalk` and
 --------------------------------------------------------------------------------
 :section/body
 
+[På Norsk](https://www.kodemaker.no/blogg/2023-04-14-walk/).
+
 You can think of `clojure.walk` as `string/replace` for arbitrary data
 structures, or maybe as `map` for nested data. Let’s start with an illustrative,
 if trivial, example.

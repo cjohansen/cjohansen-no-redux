@@ -16,6 +16,7 @@
  [:tag/git "Git"]
  [:tag/go "Go"]
  [:tag/haproxy "HAProxy"]
+ [:tag/html "HTML"]
  [:tag/https "TLS/HTTPS"]
  [:tag/javascript "JavaScript"]
  [:tag/kubernetes "Kubernetes"]

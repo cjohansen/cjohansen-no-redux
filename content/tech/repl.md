@@ -27,6 +27,8 @@ essential tool you might not know you're missing in your (work) life.
 --------------------------------------------------------------------------------
 :section/body
 
+[På Norsk](https://www.kodemaker.no/blogg/2022-10-repl/).
+
 I recently watched the talk [Stop Writing Dead
 Programs](https://www.youtube.com/watch?v=8Ab3ArE8W3s) from Strange Loop 2022,
 and was reminded that one of the things I really enjoy when writing Clojure is
