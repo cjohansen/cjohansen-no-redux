@@ -21,6 +21,7 @@
  [:tag/javascript "JavaScript"]
  [:tag/kubernetes "Kubernetes"]
  [:tag/letsencrypt "Letsencrypt"]
+ [:tag/methodology "Methodology"]
  [:tag/productivity "Productivity"]
  [:tag/programming "Programming"]
  [:tag/search "Search"]
