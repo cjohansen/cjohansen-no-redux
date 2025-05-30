@@ -23,6 +23,7 @@
  [:tag/letsencrypt "Letsencrypt"]
  [:tag/productivity "Productivity"]
  [:tag/programming "Programming"]
+ [:tag/search "Search"]
  [:tag/spec "clojure.spec"]
  [:tag/spotify "Spotify"]
  [:tag/tools.deps "tools.deps"]
