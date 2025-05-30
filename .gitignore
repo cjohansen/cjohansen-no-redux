@@ -3,3 +3,5 @@
 ui/resources/public/js
 /.clj-kondo/
 /.lsp/
+/target/
+/infrastructure/.terraform/

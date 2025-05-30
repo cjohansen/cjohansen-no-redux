@@ -939,7 +939,7 @@ In an upcoming article, I will show how to write interactive functions that take
 arguments, operate on regions and other segments of the current buffer.
 
 ## Full code-listing
-<a name="full-code-listing"></a>
+<a id="full-code-listing"></a>
 
 ```lisp
 (defvar buster-test-regexp
