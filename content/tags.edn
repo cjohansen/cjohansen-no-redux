@@ -18,6 +18,7 @@
  [:tag/haproxy "HAProxy"]
  [:tag/html "HTML"]
  [:tag/https "TLS/HTTPS"]
+ [:tag/java "Java"]
  [:tag/javascript "JavaScript"]
  [:tag/kubernetes "Kubernetes"]
  [:tag/letsencrypt "Letsencrypt"]
@@ -28,4 +29,5 @@
  [:tag/spec "clojure.spec"]
  [:tag/spotify "Spotify"]
  [:tag/tools.deps "tools.deps"]
+ [:tag/unicode "Unicode"]
  [:tag/clojure "Clojure"]]
