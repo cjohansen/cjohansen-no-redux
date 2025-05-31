@@ -5,3 +5,7 @@ ui/resources/public/js
 /.lsp/
 /target/
 /infrastructure/.terraform/
+.DS_Store
+/node_modules/
+/package-lock.json
+/package.json
