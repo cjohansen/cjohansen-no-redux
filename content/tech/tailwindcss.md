@@ -30,12 +30,12 @@ Yes, [Tailwind CSS](https://tailwindcss.com/) is old, but the future is, as we
 know, [unevenly
 distributed](https://quoteinvestigator.com/2012/01/24/future-has-arrived/).
 
-Today, we launched a [static page](/lange-flate-filer/) to replace an older
-service, [Smilefjesplakater online](https://smilefjes.mattilsynet.no/). Since
-the [solution](https://github.com/mattilsynet/smilefjes-deux) is small, we saw
-it as a good opportunity to take a minor technical risk and learn something new.
-So we decided to build the interface using Tailwind CSS, even though none of us
-had used it before.
+Today, we launched a [static page](https://magnars.com/static-sites/) to replace
+an older service, [Smilefjesplakater online](https://smilefjes.mattilsynet.no/).
+Since the [solution](https://github.com/mattilsynet/smilefjes-deux) is small, we
+saw it as a good opportunity to take a minor technical risk and learn something
+new. So we decided to build the interface using Tailwind CSS, even though none
+of us had used it before.
 
 ## What is Tailwind?
 
