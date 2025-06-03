@@ -5,4 +5,6 @@
   "I am **Christian Johansen**. I make my living as a software developer. My
   hobbies include playing, recording and mixing music, baking, brewing, cooking,
   and board games. I write about software development, often
-  with [Clojure](/clojure/)."}]
+  with [Clojure](/clojure/)."}
+ {:page/uri "/atom.xml"
+  :page/kind :page.kind/rss}]
