@@ -6,7 +6,10 @@
 (def opt
   {:link-ok?
    (fn [_ _ {:keys [href]}]
-     (.exists (io/file (io/resource (str "public" href)))))})
+     (some-> (str "public" href)
+             io/resource
+             io/file
+             .exists))})
 
 (defn ^:export export [& _args]
   (set! *print-namespace-maps* false)
