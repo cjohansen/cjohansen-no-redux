@@ -12,7 +12,7 @@ code?
 --------------------------------------------------------------------------------
 :section/kind :centered
 :section/theme :dark1
-:section/title Zero downtime Kubernetes deployments
+:section/title What's the domain of the frontend?
 :section/body
 
 A prerequisite for hitting the mark with software design is having good control
