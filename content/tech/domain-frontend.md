@@ -197,6 +197,32 @@ a home. It looks like this:
              :text "or electricity meter"}]})
 ```
 
+When I rewrote this component I didn't see a point in separating "actions" from
+"options". The only difference is that "actions" has a smaller icon, but
+otherwise they're just all different options. I ended up with this:
+
+```clj
+(DropdownMenu
+ {:selected {:title "Liksomveien 27A"
+             :details ["Målernummer 11331100"
+                       "Målepunkt-ID 707057500012345678"
+                       "Kundenummer 999000"]
+             :icon :ui.icons/apartment
+             :actions []}
+  :options [{:title "Ostepopveien 3"
+             :details ["Målernummer 11911199"]
+             :icon :ui.icons/house
+             :actions []}
+            {:title "Popcorngata 12"
+             :details ["Målernummer 11711177"]
+             :icon :ui.icons/house
+             :actions []}
+            {:icon :ui.icons/bare_plus
+             :icon-size :small
+             :title "Legg til bolig"
+             :sub-title "eller strømmåler"}]})
+```
+
 Here, the "actions" have moved inside "options" and gotten a new `:icon-size`
 that handles the small visual difference. It’s also worth noting that all the
 domain-specific details from `FacilityToggler` are now just a list of `details`.
